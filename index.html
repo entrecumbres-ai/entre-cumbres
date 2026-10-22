@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entre Cumbres | Café mexicano de altura en Puebla</title>
+<meta name="description" content="Café molido de Chiapas y de Huatusco, Veracruz. Pida por WhatsApp y reciba en la zona metropolitana de Puebla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Tipografías del manual: Fraunces (titulares) y Montserrat (textos) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,700..900,100,1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== 1. COLORES DEL MANUAL DE IDENTIDAD ===== */
+:root{
+  --verde:#1D3B2A;      /* Verde Cumbre: color que identifica la marca */
+  --crema:#F4EEE3;      /* Crema Nube: fondos y texto sobre verde */
+  --cafe:#5C3A21;       /* Café Tostado */
+  --salvia:#C9D3B6;     /* Salvia Neblina */
+  --terracota:#C1502E;  /* Terracota Cereza: solo acentos (botones, precios) */
+  --negro:#1A1410;      /* Negro Café: texto largo */
+  --radio:18px;
+}
+
+/* ===== 2. BASE ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--crema);color:var(--negro);line-height:1.65}
+h1,h2,h3,.logo-txt{font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 1;font-weight:900;line-height:1.05}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,90%);margin-inline:auto}
+section{padding:4.5rem 0}
+h2{font-size:clamp(1.9rem,6vw,2.8rem);color:var(--verde);margin-bottom:.8rem}
+.sub{max-width:50ch;margin-bottom:2.2rem}
+:focus-visible{outline:3px solid var(--terracota);outline-offset:3px}
+
+/* Botones grandes (mínimo 48 px de alto) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.8rem 1.7rem;border-radius:999px;font-weight:700;border:2px solid transparent;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-terra{background:var(--terracota);color:#fff}
+.btn-terra:hover{background:#a8431f}
+.btn-borde{border-color:var(--crema);color:var(--crema)}
+.btn-verde{background:var(--verde);color:var(--crema)}
+
+/* ===== 3. HEADER ===== */
+header{position:sticky;top:0;z-index:20;background:var(--crema);border-bottom:1px solid rgba(29,59,42,.15)}
+.barra{display:flex;align-items:center;justify-content:space-between;min-height:70px}
+.logo{display:flex;align-items:center;gap:.6rem}
+.logo svg{width:48px;height:auto}
+.logo-txt{font-size:1.35rem;color:var(--verde)}
+nav ul{display:none;list-style:none;gap:1.6rem;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--terracota)}
+.burger{background:none;border:0;width:48px;height:48px;font-size:1.7rem;color:var(--verde);cursor:pointer}
+nav.abierto ul{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:70px;background:var(--crema);padding:1rem 5%;box-shadow:0 10px 20px rgba(0,0,0,.1)}
+nav.abierto a{display:block;padding:.7rem 0;font-size:1.1rem}
+
+/* ===== 4. HERO: sierra, neblina y sol terracota (como el manual) ===== */
+.hero{background:var(--verde);color:var(--crema);padding:4rem 0 0;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.8rem,12vw,5.8rem);max-width:12ch;margin-bottom:1.2rem}
+.hero p{max-width:46ch;font-size:1.05rem;margin-bottom:1.8rem;opacity:.95}
+.acciones{display:flex;flex-wrap:wrap;gap:.8rem;position:relative;z-index:2}
+.hero .wrap{position:relative;z-index:2;padding-bottom:12rem;animation:entra .7s ease both}
+.montanas{position:absolute;left:0;right:0;bottom:0;width:100%;height:240px;z-index:1}
+@keyframes entra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ===== 5. CAFÉS ===== */
+.rejilla{display:grid;gap:1.4rem}
+.cafe{background:#fff;border-radius:var(--radio);padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;border:1px solid rgba(29,59,42,.12)}
+.cafe .tag{align-self:flex-start;background:var(--salvia);color:var(--verde);font-weight:700;font-size:.8rem;padding:.25rem .8rem;border-radius:999px}
+.cafe h3{font-size:1.6rem;color:var(--verde)}
+.origen{font-weight:600;color:var(--cafe)}
+.notas{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none}
+.notas li{background:var(--crema);border-radius:999px;padding:.2rem .8rem;font-size:.85rem;font-weight:500}
+.precios{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.6rem 0}
+.precios div{background:var(--crema);border-radius:14px;padding:.8rem 1rem}
+.precios small{display:block;font-weight:500}
+.precios strong{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--terracota)}
+.nota-pie{margin-top:1.4rem;font-size:.9rem;opacity:.8}
+
+/* ===== 6. CÓMO PEDIR ===== */
+.pedir{background:var(--salvia)}
+.pasos{display:grid;gap:1rem;list-style:none;counter-reset:p}
+.pasos li{background:var(--crema);border-radius:var(--radio);padding:1.3rem 1.4rem 1.3rem 4rem;position:relative;counter-increment:p}
+.pasos li::before{content:counter(p);position:absolute;left:1.1rem;top:1.1rem;width:36px;height:36px;border-radius:50%;background:var(--verde);color:var(--crema);display:grid;place-items:center;font-weight:700}
+.pasos b{color:var(--verde)}
+
+/* ===== 7. NOSOTROS ===== */
+.valores{display:grid;gap:1rem;list-style:none;margin-top:1.5rem}
+.valores li{border-left:6px solid var(--terracota);padding:.3rem 0 .3rem 1rem}
+.valores b{color:var(--verde)}
+
+/* ===== 8. NEGOCIOS (B2B) ===== */
+.negocios{background:var(--cafe);color:var(--crema)}
+.negocios h2{color:var(--crema)}
+
+/* ===== 9. CONTACTO Y FOOTER ===== */
+footer{background:var(--verde);color:var(--crema);padding:3.5rem 0 1.5rem}
+footer h2{color:var(--crema);font-size:clamp(1.8rem,5vw,2.4rem)}
+.contacto{display:grid;gap:1.6rem}
+.dato{font-size:1.15rem;font-weight:600}
+footer small{display:block;margin-top:2.2rem;padding-top:1rem;border-top:1px solid rgba(244,238,227,.2);opacity:.7}
+.wa{position:fixed;right:16px;bottom:16px;z-index:30;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-size:1.8rem;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+/* ===== 9b. CONTACTOS E INSTAGRAM ===== */
+.personas{display:grid;gap:1rem;margin-bottom:1.2rem}
+.persona{background:rgba(244,238,227,.08);border:1px solid rgba(244,238,227,.2);border-radius:var(--radio);padding:1rem 1.2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem}
+.persona .dato{width:100%;font-size:1.1rem}
+.persona .tel{font-size:1.05rem;font-weight:500;min-height:48px;display:inline-flex;align-items:center;overflow-wrap:anywhere}
+.btn-chico{min-height:48px;padding:.6rem 1.3rem}
+.ig{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;margin-top:1rem;font-weight:600;overflow-wrap:anywhere}
+.ig svg{width:26px;height:26px;flex:none}
+.ig:hover{color:var(--salvia)}
+
+/* ===== 10. ESCRITORIO ===== */
+@media(min-width:760px){
+  .burger{display:none}
+  nav ul{display:flex}
+  .rejilla{grid-template-columns:1fr 1fr}
+  .pasos{grid-template-columns:repeat(3,1fr)}
+  .valores{grid-template-columns:repeat(2,1fr)}
+  .contacto{grid-template-columns:1.2fr 1fr}
+  .montanas{height:300px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER: logo y menú ===== -->
+<header>
+  <div class="wrap barra">
+    <a href="#inicio" class="logo" aria-label="Entre Cumbres, inicio">
+      <!-- Isotipo aproximado. Reemplácelo por el SVG oficial de /logos/svg del manual -->
+      <svg viewBox="0 0 120 84" aria-hidden="true">
+        <defs><clipPath id="grano"><ellipse cx="60" cy="42" rx="58" ry="40"/></clipPath></defs>
+        <g clip-path="url(#grano)">
+          <rect width="120" height="84" fill="#1D3B2A"/>
+          <path d="M0 56 C18 56 28 28 44 28 C58 28 56 50 64 50 C74 50 78 32 92 32 C106 32 110 50 120 54 V84 H0Z" fill="#5C3A21"/>
+          <path d="M-2 56 C18 56 28 28 44 28 C58 28 56 50 64 50 C74 50 78 32 92 32 C106 32 110 50 122 54" fill="none" stroke="#F4EEE3" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="62" cy="24" r="8" fill="#C1502E"/>
+        </g>
+      </svg>
+      <span class="logo-txt">Entre Cumbres</span>
+    </a>
+    <nav id="menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#cafes">Cafés</a></li>
+        <li><a href="#pedir">Cómo pedir</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- ===== HERO: mensaje principal ===== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <h1>Altura que se saborea.</h1>
+    <p>Café mexicano molido de Chiapas y de Huatusco, Veracruz, para acompañar sus conversaciones, reuniones y pausas del día. Entregamos en la zona metropolitana de Puebla.</p>
+    <div class="acciones">
+      <a href="#cafes" class="btn btn-terra">Ver cafés</a>
+      <a href="https://wa.me/522223669286?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20Entre%20Cumbres" class="btn btn-borde">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <!-- Sierra en capas con sol terracota -->
+  <svg class="montanas" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <circle cx="260" cy="120" r="42" fill="#C1502E"/>
+    <path d="M0 220 C150 150 280 190 420 160 C560 130 640 70 780 90 C920 110 1020 170 1200 130 V300 H0Z" fill="#A0B09B"/>
+    <path d="M0 250 C200 190 380 230 560 200 C760 170 900 220 1200 180 V300 H0Z" fill="#5E7F67"/>
+    <path d="M0 285 C220 235 420 270 640 250 C860 230 1000 270 1200 245 V300 H0Z" fill="#2F5A42"/>
+  </svg>
+</section>
+
+<!-- ===== CAFÉS: precios y notas comunicados por el equipo ===== -->
+<section id="cafes">
+  <div class="wrap">
+    <h2>Dos orígenes, una taza</h2>
+    <p class="sub">Café molido, proceso lavado. Elija el que más se acomode a su gusto.</p>
+    <div class="rejilla">
+
+      <article class="cafe">
+        <span class="tag">Café comercial</span>
+        <h3>Chiapas</h3>
+        <p class="origen">Chiapas, México · Molido · Proceso lavado</p>
+        <ul class="notas" aria-label="Notas de taza"><li>Cacao</li><li>Manzana roja</li><li>Almendra</li></ul>
+        <div class="precios">
+          <div><small>Bolsa 500 g</small><strong>$170</strong></div>
+          <div><small>Bolsa 1 kg</small><strong>$320</strong></div>
+        </div>
+        <a class="btn btn-verde" href="https://wa.me/522223669286?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20de%20Chiapas%20Entre%20Cumbres">Pedir Chiapas</a>
+      </article>
+
+      <article class="cafe">
+        <span class="tag">Café gourmet</span>
+        <h3>Huatusco, Veracruz</h3>
+        <p class="origen">Huatusco, Veracruz, México · Molido · Proceso lavado</p>
+        <ul class="notas" aria-label="Notas de taza"><li>Cacao</li><li>Chabacano</li><li>Avellana</li><li>Caramelo</li></ul>
+        <div class="precios">
+          <div><small>Bolsa 500 g</small><strong>$200</strong></div>
+          <div><small>Bolsa 1 kg</small><strong>$375</strong></div>
+        </div>
+        <a class="btn btn-verde" href="https://wa.me/522223669286?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20de%20Huatusco%20Entre%20Cumbres">Pedir Huatusco</a>
+      </article>
+
+    </div>
+    <p class="nota-pie">Precios en pesos mexicanos. El kilo sale más barato que dos bolsas de 500 g.</p>
+  </div>
+</section>
+
+<!-- ===== CÓMO PEDIR ===== -->
+<section class="pedir" id="pedir">
+  <div class="wrap">
+    <h2>Pedir es fácil</h2>
+    <p class="sub">Sin registros ni carritos: todo por WhatsApp.</p>
+    <ol class="pasos">
+      <li><b>Escríbanos.</b> Dígenos qué café quiere y cuántas bolsas.</li>
+      <li><b>Confirmamos.</b> Le respondemos con el total y los datos del pedido.</li>
+      <li><b>Recíbalo.</b> Coordinamos la entrega en la zona metropolitana de Puebla.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== SOBRE NOSOTROS ===== -->
+<section id="nosotros">
+  <div class="wrap">
+    <h2>Café mexicano para compartir</h2>
+    <p class="sub">Entre Cumbres nace en Puebla con una idea sencilla: que el café de las regiones de altura de México acompañe lo de todos los días, desde el desayuno hasta una plática con amigos.</p>
+    <ul class="valores">
+      <li><b>Origen mexicano.</b> Le decimos de dónde viene cada café.</li>
+      <li><b>Sabor claro.</b> Describimos las notas tal como las encontrará en la taza.</li>
+      <li><b>Compañía.</b> Café para conversar, trabajar, estudiar o descansar.</li>
+      <li><b>Cercanía.</b> Trato directo, de persona a persona.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== NEGOCIOS: cafeterías, oficinas y tiendas ===== -->
+<section class="negocios">
+  <div class="wrap">
+    <h2>¿Cafetería, oficina o tienda?</h2>
+    <p class="sub">Escríbanos para hablar de pedidos recurrentes y de volumen.</p>
+    <a class="btn btn-terra" href="https://wa.me/522223669286?text=Hola%2C%20tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20de%20Entre%20Cumbres">Escribir por WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER: contacto ===== -->
+<footer id="contacto">
+  <div class="wrap contacto">
+    <div>
+      <h2>Hablemos de café</h2>
+      <p class="sub">Respondemos por WhatsApp o llamada.</p>
+      <a class="btn btn-terra" href="https://wa.me/522223669286?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20Entre%20Cumbres">Pedir por WhatsApp</a>
+    </div>
+    <div>
+      <div class="personas">
+        <div class="persona">
+          <p class="dato">Santiago Rico</p>
+          <a class="tel" href="tel:+522223669286">222 366 9286</a>
+          <a class="btn btn-terra btn-chico" href="https://wa.me/522223669286?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Entre%20Cumbres">WhatsApp</a>
+        </div>
+        <div class="persona">
+          <p class="dato">Jorge Bogarín</p>
+          <a class="tel" href="tel:+522219458471">221 945 8471</a>
+          <a class="btn btn-terra btn-chico" href="https://wa.me/522219458471?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Entre%20Cumbres">WhatsApp</a>
+        </div>
+      </div>
+      <p>Zona metropolitana de Puebla, México</p>
+      <a class="ig" href="https://www.instagram.com/entrecumbrescafe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Entre Cumbres, @entrecumbrescafe (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>Síguenos en Instagram · @entrecumbrescafe</span>
+      </a>
+    </div>
+  </div>
+  <div class="wrap"><small>© 2026 Entre Cumbres · Café de altura. Todos los derechos reservados.</small></div>
+</footer>
+
+<a class="wa" href="https://wa.me/522223669286" aria-label="Escribir por WhatsApp">💬</a>
+
+<!-- ===== JAVASCRIPT: menú en celular ===== -->
+<script>
+const menu=document.getElementById('menu'),burger=document.getElementById('burger');
+function cerrar(){menu.classList.remove('abierto');burger.textContent='☰';burger.setAttribute('aria-expanded',false)}
+burger.addEventListener('click',()=>{
+  const abierto=menu.classList.toggle('abierto');
+  burger.textContent=abierto?'✕':'☰';
+  burger.setAttribute('aria-expanded',abierto);
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',cerrar));
+</script>
+</body>
+</html>
